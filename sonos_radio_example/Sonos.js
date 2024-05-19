@@ -51,11 +51,11 @@ Sonos.prototype.play = function(callback) {
 }
 
 Sonos.prototype.setRadioUri = function(stationId, callback){
-	radioUri = ""
+	var radioUri = ""
 	if (stationId.startsWith("sonos")) {
 		// Sonos Radio if stationdId starts with SONOS
 		radioUri = "x-sonosapi-radio:" + stationId + "?sid=303&flags=8232&sn=12";
-	} else if (stationId.startsWith("SF")) {
+	} else if (stationId.startsWith("SF") || stationId.startsWith("ST")) {
 		// Pandora if stationId starts with SF
 		radioUri = "x-sonosapi-radio:" + stationId + "?sid=236&flags=8296&sn=2";
 	} else {
